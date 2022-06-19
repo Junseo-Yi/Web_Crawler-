@@ -1,4 +1,5 @@
 from slack_sdk import WebClient
+from Crawler_4_krGov import main_part
 
 token = input("token needed")
 slack = SlackAPI(token)
@@ -37,10 +38,17 @@ class SlackAPI:
         return result
 
 channel_name = "크롤링"
-text = "자동 생성 문구 테스트"
 
 # 채널ID 파싱
 channel_id = slack.get_channel_id(channel_name)
 
-# 댓글 달기
-slack.post_thread_message(channel_id, text)
+# 글 보내기
+import datetime as dt
+
+while true:
+    x = dt.datetime.now()
+
+    if ((x.hour == 0) and (x.minute == 0) and (x.second <= 2)):
+        tmp = main_part()
+        for i in reversed(tmp):
+            slack.post_thread_message(channel_id, str(i))
