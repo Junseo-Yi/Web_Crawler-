@@ -20,10 +20,9 @@ bs_obj = bs_obj.find("div", class_ = "article-content").find("div", class_ = "li
 
 bs_obj = bs_obj.find_all("a")
 
+def main_part():
 #내용과 url을 나눠준다, url을 wanted랑 그냥 합치면 중복이 생겨서 적절한 전처리 필요
-for i in bs_obj:
-    content_url = "https://www.korea.kr" + i["href"]
-    content = i.span.strong.string
-    print(content, content_url)
-    
-  
+    for i in bs_obj:
+        content_url = "https://www.korea.kr" + i["href"]
+        content = i.span.strong.string
+        return content, content_url
