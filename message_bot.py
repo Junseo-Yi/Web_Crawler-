@@ -1,5 +1,5 @@
 from slack_sdk import WebClient
-from Crawler_4_krGov import main_part
+
 
 token = input("token needed")
 slack = SlackAPI(token)
@@ -41,16 +41,3 @@ channel_name = "크롤링"
 
 # 채널ID 파싱
 channel_id = slack.get_channel_id(channel_name)
-
-# 글 보내기
-import datetime as dt
-import time
-
-while True:
-    x = dt.datetime.now()
-
-    if (x.hour == 0):
-        tmp = main_part()
-        for i in reversed(tmp):
-            slack.post_thread_message(channel_id, str(i))
-    time.sleep(3600)
