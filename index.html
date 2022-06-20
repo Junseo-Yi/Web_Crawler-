@@ -3,6 +3,9 @@
     <head>
         <title>Running a Python script</title>
         <?PHP
+        echo shell_exec("python token_receiver.py");
+        ?>
+        <?PHP
         echo shell_exec("python main.py");
         ?>
         </head>

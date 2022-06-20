@@ -1,7 +1,7 @@
 from slack_sdk import WebClient
+from token_receiver import input_token
 
-
-token = input("token needed")
+token = input_token
 slack = SlackAPI(token)
 
 class SlackAPI:

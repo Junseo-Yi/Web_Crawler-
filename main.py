@@ -12,4 +12,5 @@ while True:
         tmp = main_part()
         for i in reversed(tmp):
             slack.post_thread_message(channel_id, str(i))
+
     time.sleep(3600)
